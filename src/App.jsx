@@ -433,7 +433,7 @@ const s = {
 
   reading: { display:"flex", flexDirection:"column", gap:20 },
   para: { fontSize:"clamp(16.5px,2.2vw,19px)", lineHeight:1.88, color:"#2a1820",
-    fontWeight:400, animation:"fadeUp .5s ease both", textAlign:"left" },
+    fontWeight:400, animation:"fadeUp .5s ease both", textAlign:"justify" },
 
   footer: { borderTop:"1px solid rgba(192,96,128,0.12)", paddingTop:24 },
   toggleRow: { display:"flex", alignItems:"center", gap:10, marginBottom:16 },
