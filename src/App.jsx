@@ -174,6 +174,43 @@ const TOPICS = [
   { id:"spirit",  label:"Inner Life",       icon:"☽" },
 ];
 
+// ─── ICONS ───────────────────────────────────────────────────────────────────
+function SunIcon({ size=20, color="#a03860" }) {
+  const c = size/2, inner = size*0.22, gap = size*0.12, ray = size*0.13;
+  return (
+    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} fill="none"
+         stroke={color} strokeWidth={size*0.08} strokeLinecap="round">
+      <circle cx={c} cy={c} r={inner}/>
+      {[0,45,90,135,180,225,270,315].map(deg => {
+        const a = deg*Math.PI/180;
+        const x1=c+Math.cos(a)*(inner+gap), y1=c+Math.sin(a)*(inner+gap);
+        const x2=c+Math.cos(a)*(inner+gap+ray), y2=c+Math.sin(a)*(inner+gap+ray);
+        return <line key={deg} x1={x1} y1={y1} x2={x2} y2={y2}/>;
+      })}
+    </svg>
+  );
+}
+function TargetIcon({ size=16, color="#a03860" }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 20 20" fill="none"
+         stroke={color} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="10" cy="10" r="9"/>
+      <circle cx="10" cy="10" r="5.5"/>
+      <circle cx="10" cy="10" r="2"/>
+      <line x1="16" y1="4" x2="10" y2="10"/>
+      <polyline points="13,4 16,4 16,7"/>
+    </svg>
+  );
+}
+function HeartbeatIcon({ size=16, color="#a03860" }) {
+  return (
+    <svg width={size*1.6} height={size} viewBox="0 0 32 16" fill="none"
+         stroke={color} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="0,8 6,8 8,5 9,8 10,1 11,14 12,8 14,8 16,5 17,8 32,8"/>
+    </svg>
+  );
+}
+
 // ─── APP ──────────────────────────────────────────────────────────────────────
 export default function App() {
   const now = new Date();
@@ -238,7 +275,9 @@ export default function App() {
             {[["☉","Leo","Sun"],["☽","Scorpio","Moon"],["↑","Pisces","Rising"]].map(([sym,sign,label]) => (
               <div key={label} style={s.pill}>
                 <div style={s.pillInner}>
-                  <span style={s.pillSym}>{sym}</span>
+                  {label==="Sun"
+                    ? <SunIcon size={20} color="#a03860"/>
+                    : <span style={s.pillSym}>{sym}</span>}
                   <span style={s.pillSign}>{sign}</span>
                   <span style={s.pillLabel}>{label}</span>
                 </div>
@@ -252,7 +291,11 @@ export default function App() {
           {TOPICS.map(t => (
             <button key={t.id} onClick={() => switchTopic(t.id)}
               style={{ ...s.navBtn, ...(activeTopic===t.id ? s.navOn : {}) }}>
-              <span style={s.navIcon}>{t.icon}</span>
+              <span style={s.navIcon}>
+                {t.id==='career' ? <TargetIcon size={15} color="#a03860"/> :
+                 t.id==='body'   ? <HeartbeatIcon size={13} color="#a03860"/> :
+                 t.icon}
+              </span>
               <span>{t.label}</span>
             </button>
           ))}
