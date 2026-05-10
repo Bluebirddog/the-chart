@@ -241,7 +241,7 @@ export default function App() {
               <span style={s.pillLabel}>Moon</span>
             </div>
             <div style={s.pillSun}>
-              <span style={s.pillSymSun}>☀️</span>
+              <span style={s.pillSymSun}>☉</span>
               <span style={s.pillSignSun}>Leo</span>
               <span style={s.pillLabelSun}>Sun</span>
             </div>
@@ -394,20 +394,22 @@ const s = {
     WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent", marginBottom:10 },
   subtitle: { fontSize:17, color:"#b07090", letterSpacing:".12em", fontStyle:"italic", marginBottom:28 },
   pills: { display:"flex", justifyContent:"center", alignItems:"center", gap:14, flexWrap:"wrap" },
-  pill: { display:"flex", flexDirection:"column", alignItems:"center", padding:"14px 24px",
+  pill: { display:"flex", flexDirection:"column", alignItems:"center", padding:"14px 0",
+    width:100,
     background:"rgba(255,255,255,0.65)", borderRadius:12,
     border:"1px solid rgba(192,96,128,0.18)",
     boxShadow:"0 2px 12px rgba(192,96,128,0.08)" },
-  pillSym:   { fontSize:26, color:"#a03860", lineHeight:1, marginBottom:4 },
+  pillSym:   { fontSize:22, color:"#a03860", lineHeight:1, marginBottom:4 },
   pillSign:  { fontFamily:"'Cinzel',serif", fontSize:17, color:"#a03860", letterSpacing:".08em" },
   pillLabel: { fontSize:12, color:"#a06880", letterSpacing:".16em", textTransform:"uppercase", marginTop:4 },
-  pillSun: { display:"flex", flexDirection:"column", alignItems:"center", padding:"22px 32px",
-    background:"linear-gradient(145deg, rgba(255,255,255,0.85), rgba(255,235,215,0.75))",
-    borderRadius:16, border:"1.5px solid rgba(192,80,80,0.3)",
-    boxShadow:"0 6px 24px rgba(192,96,80,0.15)" },
-  pillSymSun:   { fontSize:40, lineHeight:1, marginBottom:6 },
-  pillSignSun:  { fontFamily:"'Cinzel',serif", fontSize:22, color:"#a03860", letterSpacing:".08em", fontWeight:500 },
-  pillLabelSun: { fontSize:13, color:"#a06880", letterSpacing:".16em", textTransform:"uppercase", marginTop:5 },
+  pillSun: { display:"flex", flexDirection:"column", alignItems:"center",
+    width:120, height:120, justifyContent:"center",
+    background:"rgba(255,255,255,0.65)", borderRadius:16,
+    border:"1px solid rgba(192,96,128,0.25)",
+    boxShadow:"0 4px 18px rgba(192,96,128,0.12)" },
+  pillSymSun:   { fontSize:26, color:"#a03860", lineHeight:1, marginBottom:6 },
+  pillSignSun:  { fontFamily:"'Cinzel',serif", fontSize:21, color:"#a03860", letterSpacing:".08em" },
+  pillLabelSun: { fontSize:12, color:"#a06880", letterSpacing:".16em", textTransform:"uppercase", marginTop:5 },
 
   nav: { display:"flex", gap:6, flexWrap:"wrap", justifyContent:"center", marginBottom:44 },
   navBtn: { display:"flex", alignItems:"center", gap:6, padding:"8px 14px",
