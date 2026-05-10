@@ -168,8 +168,8 @@ const TOPIC_PROMPTS = {
 
 const TOPICS = [
   { id:"general", label:"Today",            icon:"✦" },
-  { id:"love",    label:"Love",             icon:"♀" },
-  { id:"career",  label:"Work & Purpose",   icon:"♂" },
+  { id:"love",    label:"Love & Family",    icon:"♡" },
+  { id:"career",  label:"Work & Purpose",   icon:"◎" },
   { id:"body",    label:"Body & Health",    icon:"◯" },
   { id:"spirit",  label:"Inner Life",       icon:"☽" },
 ];
@@ -235,27 +235,15 @@ export default function App() {
           <h1 style={s.title}>The Chart</h1>
           <div style={s.subtitle}>{dateStr}</div>
           <div style={s.pills}>
-            <div style={s.pill}>
-              <div style={s.pillInner}>
-                <span style={s.pillSym}>☽</span>
-                <span style={s.pillSign}>Scorpio</span>
-                <span style={s.pillLabel}>Moon</span>
+            {[["☉","Leo","Sun"],["☽","Scorpio","Moon"],["↑","Pisces","Rising"]].map(([sym,sign,label]) => (
+              <div key={label} style={s.pill}>
+                <div style={s.pillInner}>
+                  <span style={s.pillSym}>{sym}</span>
+                  <span style={s.pillSign}>{sign}</span>
+                  <span style={s.pillLabel}>{label}</span>
+                </div>
               </div>
-            </div>
-            <div style={s.pillSun}>
-              <div style={s.pillInner}>
-                <span style={s.pillSymSun}>☉</span>
-                <span style={s.pillSignSun}>Leo</span>
-                <span style={s.pillLabelSun}>Sun</span>
-              </div>
-            </div>
-            <div style={s.pill}>
-              <div style={s.pillInner}>
-                <span style={s.pillSym}>↑</span>
-                <span style={s.pillSign}>Pisces</span>
-                <span style={s.pillLabel}>Rising</span>
-              </div>
-            </div>
+            ))}
           </div>
         </header>
 
@@ -400,24 +388,17 @@ const s = {
     WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent", marginBottom:10 },
   subtitle: { fontSize:17, color:"#b07090", letterSpacing:".12em", fontStyle:"italic", marginBottom:28 },
   pills: { display:"flex", justifyContent:"center", alignItems:"center", gap:14, flexWrap:"wrap" },
-  pill: { position:"relative", width:82, height:82,
+  pill: { position:"relative", width:100, height:100,
     background:"rgba(255,255,255,0.65)", borderRadius:12,
     border:"1px solid rgba(192,96,128,0.18)",
     boxShadow:"0 2px 12px rgba(192,96,128,0.08)" },
   pillInner: { position:"absolute", top:"50%", left:"50%",
     transform:"translate(-50%, -50%)",
     display:"flex", flexDirection:"column", alignItems:"center",
-    gap:3, textAlign:"center", width:"100%" },
-  pillSym:   { fontSize:16, color:"#a03860", lineHeight:1, marginBottom:3 },
-  pillSign:  { fontFamily:"'Cinzel',serif", fontSize:13, color:"#a03860", letterSpacing:".06em" },
-  pillLabel: { fontSize:9, color:"#a06880", letterSpacing:".14em", textTransform:"uppercase", marginTop:3 },
-  pillSun: { position:"relative", width:120, height:120,
-    background:"rgba(255,255,255,0.65)", borderRadius:16,
-    border:"1px solid rgba(192,96,128,0.25)",
-    boxShadow:"0 4px 18px rgba(192,96,128,0.12)" },
-  pillSymSun:   { fontSize:26, color:"#a03860", lineHeight:1, marginBottom:6 },
-  pillSignSun:  { fontFamily:"'Cinzel',serif", fontSize:21, color:"#a03860", letterSpacing:".08em" },
-  pillLabelSun: { fontSize:12, color:"#a06880", letterSpacing:".16em", textTransform:"uppercase", marginTop:5 },
+    gap:4, textAlign:"center", width:"100%" },
+  pillSym:   { fontSize:20, color:"#a03860", lineHeight:1 },
+  pillSign:  { fontFamily:"'Cinzel',serif", fontSize:15, color:"#a03860", letterSpacing:".08em" },
+  pillLabel: { fontSize:10, color:"#a06880", letterSpacing:".16em", textTransform:"uppercase" },
 
   nav: { display:"flex", gap:6, flexWrap:"wrap", justifyContent:"center", marginBottom:44 },
   navBtn: { display:"flex", alignItems:"center", gap:6, padding:"8px 14px",
