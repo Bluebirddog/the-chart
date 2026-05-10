@@ -179,7 +179,7 @@ function SunIcon({ size=20, color="#a03860" }) {
   const c = size/2, inner = size*0.22, gap = size*0.12, ray = size*0.13;
   return (
     <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} fill="none"
-         stroke={color} strokeWidth={size*0.08} strokeLinecap="round">
+         stroke={color} strokeWidth={size*0.05} strokeLinecap="round">
       <circle cx={c} cy={c} r={inner}/>
       {[0,45,90,135,180,225,270,315].map(deg => {
         const a = deg*Math.PI/180;
@@ -193,7 +193,7 @@ function SunIcon({ size=20, color="#a03860" }) {
 function TargetIcon({ size=16, color="#a03860" }) {
   return (
     <svg width={size} height={size} viewBox="0 0 20 20" fill="none"
-         stroke={color} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+         stroke={color} strokeWidth="1.0" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="10" cy="10" r="9"/>
       <circle cx="10" cy="10" r="5.5"/>
       <circle cx="10" cy="10" r="2"/>
@@ -205,7 +205,7 @@ function TargetIcon({ size=16, color="#a03860" }) {
 function HeartbeatIcon({ size=16, color="#a03860" }) {
   return (
     <svg width={size*1.6} height={size} viewBox="0 0 32 16" fill="none"
-         stroke={color} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+         stroke={color} strokeWidth="1.0" strokeLinecap="round" strokeLinejoin="round">
       <polyline points="0,8 6,8 8,5 9,8 10,1 11,14 12,8 14,8 16,5 17,8 32,8"/>
     </svg>
   );
