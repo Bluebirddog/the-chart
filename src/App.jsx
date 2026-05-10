@@ -235,13 +235,21 @@ export default function App() {
           <h1 style={s.title}>The Chart</h1>
           <div style={s.subtitle}>{dateStr}</div>
           <div style={s.pills}>
-            {[["☉","Leo","Sun"],["☽","Scorpio","Moon"],["↑","Pisces","Rising"]].map(([sym,sign,label]) => (
-              <div key={label} style={s.pill}>
-                <span style={s.pillSym}>{sym}</span>
-                <span style={s.pillSign}>{sign}</span>
-                <span style={s.pillLabel}>{label}</span>
-              </div>
-            ))}
+            <div style={s.pill}>
+              <span style={s.pillSym}>☽</span>
+              <span style={s.pillSign}>Scorpio</span>
+              <span style={s.pillLabel}>Moon</span>
+            </div>
+            <div style={s.pillSun}>
+              <span style={s.pillSymSun}>☀️</span>
+              <span style={s.pillSignSun}>Leo</span>
+              <span style={s.pillLabelSun}>Sun</span>
+            </div>
+            <div style={s.pill}>
+              <span style={s.pillSym}>↑</span>
+              <span style={s.pillSign}>Pisces</span>
+              <span style={s.pillLabel}>Rising</span>
+            </div>
           </div>
         </header>
 
@@ -385,7 +393,7 @@ const s = {
     background:"linear-gradient(135deg, #a03860 0%, #c4607a 40%, #b03868 70%, #a03860 100%)",
     WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent", marginBottom:10 },
   subtitle: { fontSize:17, color:"#b07090", letterSpacing:".12em", fontStyle:"italic", marginBottom:28 },
-  pills: { display:"flex", justifyContent:"center", gap:12, flexWrap:"wrap" },
+  pills: { display:"flex", justifyContent:"center", alignItems:"center", gap:14, flexWrap:"wrap" },
   pill: { display:"flex", flexDirection:"column", alignItems:"center", padding:"14px 24px",
     background:"rgba(255,255,255,0.65)", borderRadius:12,
     border:"1px solid rgba(192,96,128,0.18)",
@@ -393,6 +401,13 @@ const s = {
   pillSym:   { fontSize:26, color:"#a03860", lineHeight:1, marginBottom:4 },
   pillSign:  { fontFamily:"'Cinzel',serif", fontSize:17, color:"#a03860", letterSpacing:".08em" },
   pillLabel: { fontSize:12, color:"#a06880", letterSpacing:".16em", textTransform:"uppercase", marginTop:4 },
+  pillSun: { display:"flex", flexDirection:"column", alignItems:"center", padding:"22px 32px",
+    background:"linear-gradient(145deg, rgba(255,255,255,0.85), rgba(255,235,215,0.75))",
+    borderRadius:16, border:"1.5px solid rgba(192,80,80,0.3)",
+    boxShadow:"0 6px 24px rgba(192,96,80,0.15)" },
+  pillSymSun:   { fontSize:40, lineHeight:1, marginBottom:6 },
+  pillSignSun:  { fontFamily:"'Cinzel',serif", fontSize:22, color:"#a03860", letterSpacing:".08em", fontWeight:500 },
+  pillLabelSun: { fontSize:13, color:"#a06880", letterSpacing:".16em", textTransform:"uppercase", marginTop:5 },
 
   nav: { display:"flex", gap:6, flexWrap:"wrap", justifyContent:"center", marginBottom:44 },
   navBtn: { display:"flex", alignItems:"center", gap:6, padding:"8px 14px",
